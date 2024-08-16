@@ -1,5 +1,9 @@
 # skw-endpoint-tracer
 
+- https://skywalking.apache.org/docs/main/v10.0.0/en/api/query-protocol/#logs
+- https://github.com/apache/skywalking-query-protocol
+- https://github.com/apache/skywalking-cli
+
 ```go
 func main() {
 	client.Path = "https://my-skywalking-server/graphql"

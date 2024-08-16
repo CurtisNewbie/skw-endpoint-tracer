@@ -27,7 +27,16 @@ func init() {
 	})
 }
 
-type MergePrefixMap map[string] /* service */ map[string] /* path-prefix */ string /* name to be used */
+// Map to specifiy endpoint names that should be merged based on the given prefix.
+//
+//	map[string] /* service */ map[string] /* path-prefix */ string /* name to be used */
+//
+// In Skywalking, if the HTTP endpoint uses path parameters, for each value of the path parameter, a unique endpoint is created,
+// which doesn't really make sense if we are trying figure out where the requests are coming from.
+//
+// In this map data strucuture, you specify the common path prefix, it will automatically merge these endpoint into single one,
+// and all dependent endpoints will be appended to the same Endpoint's Child.
+type MergePrefixMap map[string]map[string]string
 
 func PrintEndpointRoutes(dependencies map[string][]*Endpoint) {
 	for s, roots := range dependencies {

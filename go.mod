@@ -1,4 +1,4 @@
-module tracer
+module github.com/curtisnewbie/skw-endpoint-tracer
 
 go 1.22.3
 
